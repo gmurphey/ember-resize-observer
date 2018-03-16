@@ -1,7 +1,7 @@
 import Mixin from '@ember/object/mixin';
 
 export default Mixin.create({
-  init() {
+  didInsertElement() {
     this._super(...arguments);
 
     this._resizeObservableHeight = null;
@@ -19,9 +19,7 @@ export default Mixin.create({
         this._resizeObservableWidth = width;
       }
     });
-  },
 
-  didInsertElement() {
     this.resizeObserver.observe(this.element);
   },
 
